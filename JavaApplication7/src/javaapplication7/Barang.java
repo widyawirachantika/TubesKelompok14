@@ -10,37 +10,74 @@ package javaapplication7;
  * @author ac
  */
 public class Barang{
-	private String namaBarang;
-	private int kodeBarang;
-	private boolean statusBarang =true;
-	private int nBarang=0;
-	
-	public Barang(String namaBarang, int nBarang){
-            this.namaBarang = namaBarang;
-            this.nBarang = nBarang;
-	}
-	
-	public Barang(int kodeBarang){
-            this.kodeBarang = kodeBarang;
-	}
-		
-	//public void setStatusBarang(boolean statusBarang){
-	//	if (statusBarang == true){
-	//		return ("Barang dapat dipinjam");
-	//	}else {
-	//		return ("Barang tidak tersedia");
-	//	}
-	//}
-	
-	public String getNamaBarang(){
-            return namaBarang;
-	}
-	
-	public int getKodeBarang(){
-            return kodeBarang;
-	}
-	
-	public String getStatusBarang(){
-            return statusBarang;
-	}
+    private String namaBarang;
+    private int kodeBarang;
+    private boolean statusBarang =true;
+    private int nBarang;
+    private int nBarangDipinjam;
+    
+    private int nBarangDibalikkan;
+
+    public Barang(int kodeBarang, String namaBarang, int nBarang){
+        this.kodeBarang = kodeBarang;
+        this.namaBarang = namaBarang;
+        this.nBarang = nBarang;
+    }
+    
+    public Barang(int kodeBarang, int nBarangDipinjam) {
+        this.kodeBarang = kodeBarang;
+        this.nBarangDipinjam = nBarangDipinjam;
+    }
+    
+    public Barang(String namaBarang,int kodeBarang, int nBarangDibalikkan) {
+        this.namaBarang = namaBarang;
+        this.kodeBarang = kodeBarang;
+        this.nBarangDibalikkan = nBarangDibalikkan;
+    }
+    
+    public String getNamaBarang(){
+        return namaBarang;
+    }
+
+    public int getKodeBarang(){
+        return kodeBarang;
+    }
+
+    public void setnBarang(int nBarang) {
+        this.nBarang = nBarang;
+    }
+
+    public int getnBarang() {
+        return nBarang;
+    }
+
+    public boolean isStatusBarang() {
+        return statusBarang;
+    }
+
+    public void setStatusBarang() {
+        if (nBarang == nBarangDipinjam){
+            statusBarang = false;
+        }
+        else statusBarang = true;
+    }
+
+    public int getnBarangDipinjam() {
+        return nBarangDipinjam;
+    }
+
+    public void setnBarangDipinjam(int nBarangDipinjam) {
+        this.nBarangDipinjam = this.nBarangDipinjam + nBarangDipinjam;
+    }
+
+    public int getnBarangDibalikkan() {
+        return nBarangDibalikkan;
+    }
+
+    public void setnBarangDibalikkan(int nBarangDibalikkan) {
+        this.nBarangDibalikkan = nBarangDibalikkan;
+    }
+    
+    
+        
 }
