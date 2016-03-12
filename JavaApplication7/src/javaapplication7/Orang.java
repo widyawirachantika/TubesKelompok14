@@ -10,5 +10,22 @@ package javaapplication7;
  * @author ac
  */
 public abstract class Orang {
-    
+	String nama;
+	String id;
+	String jabatan;
+	
+	public Orang(String nama, String id){
+		this.nama = nama;
+		this.id = id;
+	}
+	
+	public String getNama(){
+		return nama;
+	}
+	
+	public String getId(){
+		return id;
+	}
+	
+	public abstract String getJabatan();
 }
