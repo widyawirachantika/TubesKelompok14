@@ -15,7 +15,7 @@ public class Peminjaman{
         private int id;
 	private Date tanggalPinjam;
 	private boolean statusPeminjaman = true;
-	private int nPinjaman=0;
+	private int nPinjaman;
 	
 	public Peminjaman(int id, Date tanggalPinjam){
             this.id = id;
@@ -53,18 +53,25 @@ public class Peminjaman{
 	
         public void addPinjaman(Barang b, int jumlahPinjam){
             b.setnBarangDipinjam(jumlahPinjam);
+            b.setStatusBarang();
             this.b[nPinjaman] = b;
+            this.b[nPinjaman].setJumPinjam(jumlahPinjam);
             statusPeminjaman = false;
             nPinjaman++;
         }
         
         public void removePinjaman (Barang b, int jumlahDibalikkan){
             b.setnBarangDipinjam(-(jumlahDibalikkan));
-            
-            for (int i = 0; i <= 100; i++) {
-                if ((this.b[i].getKodeBarang()==b.getKodeBarang()) && b.getnBarangDipinjam()==0) {
-                    this.b[i] = null;
-                    nPinjaman--;
+            b.setStatusBarang();
+            for (int i = 0; i < nPinjaman; i++) {
+                if (this.b[i].getKodeBarang()==b.getKodeBarang()) {
+                    this.b[i] = b;
+                    this.b[i].setJumPinjam(jumlahDibalikkan);
+                    if (this.b[i].getnBarangDipinjam() == 0) {
+                        this.b[i] = null;
+                        nPinjaman--;
+                    }
+                    
                 }
             }
         }

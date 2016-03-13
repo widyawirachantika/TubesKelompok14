@@ -16,7 +16,8 @@ public class Barang{
     private int nBarang;
     private int nBarangDipinjam;
     
-    private int nBarangDibalikkan;
+    private int jumPinjam;
+    //private int nBarangDibalikkan;
 
     public Barang(int kodeBarang, String namaBarang, int nBarang){
         this.kodeBarang = kodeBarang;
@@ -29,11 +30,7 @@ public class Barang{
         this.nBarangDipinjam = nBarangDipinjam;
     }
     
-    public Barang(String namaBarang,int kodeBarang, int nBarangDibalikkan) {
-        this.namaBarang = namaBarang;
-        this.kodeBarang = kodeBarang;
-        this.nBarangDibalikkan = nBarangDibalikkan;
-    }
+    
     
     public String getNamaBarang(){
         return namaBarang;
@@ -70,12 +67,21 @@ public class Barang{
         this.nBarangDipinjam = this.nBarangDipinjam + nBarangDipinjam;
     }
 
-    public int getnBarangDibalikkan() {
-        return nBarangDibalikkan;
+    
+//    public int getnBarangDibalikkan() {
+//        return nBarangDibalikkan;
+//    }
+
+//    public void setnBarangDibalikkan(int nBarangDibalikkan) {
+//        this.nBarangDibalikkan = nBarangDibalikkan;
+//    }
+
+    public int getJumPinjam() {
+        return jumPinjam;
     }
 
-    public void setnBarangDibalikkan(int nBarangDibalikkan) {
-        this.nBarangDibalikkan = nBarangDibalikkan;
+    public void setJumPinjam(int jumPinjam) {
+        this.jumPinjam = this.jumPinjam + jumPinjam;
     }
     
     

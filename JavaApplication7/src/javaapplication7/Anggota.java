@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Anggota extends Orang{
     Peminjaman[] riwayatPinjaman = new Peminjaman[100];
-    private int jumAnggota = 0;
+    //private int jumAnggota = 0;
     private int jumPinjaman =0 ;
     private String passwordAnggota;
     private date tanggal;
@@ -23,9 +23,14 @@ public class Anggota extends Orang{
         passwordAnggota = password;
     }
 
+    public int getJumPinjaman() {
+        return jumPinjaman;
+    }
+
     public void CreatePeminjaman(int idPeminjaman,Date date){
         riwayatPinjaman[jumPinjaman] = new Peminjaman(idPeminjaman,date);
         riwayatPinjaman[jumPinjaman].setStatusPeminjaman(false);
+        jumPinjaman++;
     }
 
     public Peminjaman GetPeminjamanByIndex (int indeks){
@@ -34,7 +39,7 @@ public class Anggota extends Orang{
 
     public Peminjaman GetPeminjamanByDate(Date tanggal){
         Peminjaman temp = null;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < jumPinjaman; i++) {
             if (riwayatPinjaman[i].getTanggalPinjam()==tanggal) {
                 temp = riwayatPinjaman[i]; 
             }
@@ -44,7 +49,7 @@ public class Anggota extends Orang{
 
     //belum paham 
     public void KembalikanPinjaman(int idPeminjaman){
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < jumPinjaman; i++) {
             if (riwayatPinjaman[i].getIdBarang() == idPeminjaman){
                 riwayatPinjaman[i].setStatusPeminjaman(true);
             }
