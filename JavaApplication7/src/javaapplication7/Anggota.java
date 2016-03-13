@@ -4,58 +4,100 @@
  * and open the template in the editor.
  */
 package javaapplication7;
+
+import java.util.*;
 /**
  *
  * @author ac
  */
 public class Anggota extends Orang{
-	private Peminjaman[] riwayatPeminjaman = new Peminjaman[100];
-	private Orang[] member = new Orang[100];
-	private int jumAnggota = 0;
-        private String usernameAnggota;
-        private String passwordAnggota;
-        
-	public Anggota(String nama, String id,String username, String password){
-		super(nama, id);
-                usernameAnggota = username;
-                passwordAnggota = password;
-	}
+    Peminjaman[] riwayatPinjaman = new Peminjaman[100];
+    //private int jumAnggota = 0;
+    private int jumPinjaman =0 ;
+    private String passwordAnggota;
+    private date tanggal;
 
-        public String getUsernameAnggota() {    
-            return usernameAnggota;
-        }
 
-        public void setUsernameAnggota(String usernameAnggota) {
-            this.usernameAnggota = usernameAnggota;
-        }
+    public Anggota(String nama, int id, String password){
+        super(nama, id);
+        passwordAnggota = password;
+    }
 
-        public String getPasswordAnggota() {
-            return passwordAnggota;
-        }
+    public int getJumPinjaman() {
+        return jumPinjaman;
+    }
 
-        public void setPasswordAnggota(String passwordAnggota) {
-            this.passwordAnggota = passwordAnggota;
+    public void CreatePeminjaman(int idPeminjaman,Date date){
+        riwayatPinjaman[jumPinjaman] = new Peminjaman(idPeminjaman,date);
+        riwayatPinjaman[jumPinjaman].setStatusPeminjaman(false);
+        jumPinjaman++;
+    }
+
+    public Peminjaman GetPeminjamanByIndex (int indeks){
+        return riwayatPinjaman[indeks];
+    }
+
+    public Peminjaman GetPeminjamanByDate(Date tanggal){
+        Peminjaman temp = null;
+        for (int i = 0; i < jumPinjaman; i++) {
+            if (riwayatPinjaman[i].getTanggalPinjam()==tanggal) {
+                temp = riwayatPinjaman[i]; 
+            }
         }
-	
-	public String getJabatan(){
-		return "Jabatan : Anggota";
-	}
-	
-	public void addMember(Orang member){
-		this.member[jumAnggota] = member;
-		jumAnggota++;
-	}
-	
-//	public int getJumAnggota(){
-//		return jumAnggota;
+        return temp;
+    }
+
+    //belum paham 
+    public void KembalikanPinjaman(int idPeminjaman){
+        for (int i = 0; i < jumPinjaman; i++) {
+            if (riwayatPinjaman[i].getIdBarang() == idPeminjaman){
+                riwayatPinjaman[i].setStatusPeminjaman(true);
+            }
+        }
+    }
+
+    public String getJabatan(){
+        return "Anggota";
+    }
+//
+//        public String getPasswordAnggota() {
+//            return passwordAnggota;
+//        }
+//        
+//        public void createPinjaman(date tanggal){
+//            p[jumPinjaman]= new Peminjaman(String nama, int tanggal);
+//            jumPinjaman++;
+//        }
+//        
+//        public Peminjaman getPeminjamanbyIndex(){
+//            return p[i];
+//        }
+//        
+//        public Peminjaman getPeminjamanbyTanggal {
+//            return p[tanggal];
+//        }
+//
+//        public void setPasswordAnggota(String passwordAnggota) {
+//            this.passwordAnggota = passwordAnggota;
+//        }
+//	
+
+//	
+//	public void addMember(Orang member){
+//		this.member[jumAnggota] = member;
+//		jumAnggota++;
 //	}
-	
-	public void getDaftarPinjaman(){
-		return riwayatPeminjaman[];		
-	}
-	
-	public void createPinjaman(String nama){
-//		this.pinjam[
-	}	
+//	
+////	public int getJumAnggota(){
+////		return jumAnggota;
+////	}
+//	
+////	public void getDaftarPinjaman(){
+////		return p;		
+////	}
+//	
+////	public void createPinjaman(String nama){
+////		this.pinjam[
+////	}	
 	
 }
