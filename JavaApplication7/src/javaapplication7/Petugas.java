@@ -4,11 +4,30 @@
  * and open the template in the editor.
  */
 package javaapplication7;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author ac
  */
-public class Petugas {
+public class Petugas extends Orang{
+//    private Arraylist<Anggota> listAnggota = new Arraylist<Anggota>();
+    Anggota[] peminjam = new Anggota[100];
+    private Orang petugas;
+    private int jumPeminjam = 0;
+    private String passwordPetugas;
+
+    public Petugas(String nama,int id, String passwordPetugas) {
+        super(nama, id);
+        this.passwordPetugas = passwordPetugas;
+    }
+
+    public String getJabatan() {
+        return "Petugas";
+    }
     
+    public void addAnggota(Anggota a){
+        peminjam[jumPeminjam] = a;
+        jumPeminjam++;
+    }
 }
