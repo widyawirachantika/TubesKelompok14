@@ -18,11 +18,15 @@ public class Anggota extends Orang{
     private date tanggal;
 
 
-    public Anggota(String nama, int id, String password){
+    public Anggota(String nama, String id, String password){
         super(nama, id);
         passwordAnggota = password;
     }
 
+    public String getNama(){
+        return nama;
+    }
+    
     public int getJumPinjaman() {
         return jumPinjaman;
     }
@@ -58,6 +62,10 @@ public class Anggota extends Orang{
 
     public String getJabatan(){
         return "Anggota";
+    }
+    
+    public String toString(){
+        return ("Nama: "+getNama()+"\n"+"Jabatan: "+getJabatan());
     }
 //
 //        public String getPasswordAnggota() {
