@@ -46,10 +46,9 @@ public class Aplikasi {
         Anggota a = getAnggota("Anggota1");
         a.CreatePeminjaman(1, new Date());
         
-        Peminjaman p = a.GetPeminjamanByIndex(1);
-        p.addPinjaman(new Barang(1, "Sound System", 10), 1);
-        p.addPinjaman(new Barang(2, "Lighting", 10), 1);
-        
+//        Peminjaman p = a.GetPeminjamanByIndex(1);
+//        p.addPinjaman(new Barang(1, "Sound System", 10), 3);
+//        p.addPinjaman(new Barang(2, "Lighting", 10), 2);
     }
     
     public void addAnggota(String nama, String id, String password){
@@ -191,14 +190,16 @@ public class Aplikasi {
                                                 break;
                                             case 3:
                                                 System.out.println("View detail barang");
+                                                int x = 0;
                                                 Anggota a1 = getAnggota(idAnggota);
-                                                Peminjaman p = a1.GetPeminjamanByID(idAnggota);
+                                                Peminjaman p = a1.GetPeminjamanByIndex(x);
+                                                x++;
                                                 System.out.println("ID :"+p.getId());
                                                 System.out.println("Tanggal Pinjam :"+p.getTanggalPinjam());
 //                                                        System.out.println("Tanggal Kembali"+p.getTanggalKembali());
 //                                                            if(p.getTanggalPengembalian() != null){
 //                                                                System.out.println("Tanggal Pengembalian :"+p.getTanggalPengembalian());
-//                                                                p.hitungDenda(1000);
+//                                                                p.hitungDenda(3000);
 //                                                                System.out.println("Denda :"+p.getBiayaDenda());
 //                                                            }
                                                         System.out.println();
