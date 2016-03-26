@@ -11,10 +11,10 @@ package javaapplication7;
  */
 public abstract class Orang {
     String nama;
-    int id;
+    String id;
     String jabatan;
 
-    public Orang(String nama, int id){
+    public Orang(String nama, String id){
             this.nama = nama;
             this.id = id;
     }
@@ -23,9 +23,10 @@ public abstract class Orang {
             return nama;
     }
 
-    public int getId(){
+    public String getId(){
             return id;
     }
 
+    public abstract String toString();
     public abstract String getJabatan();
 }
