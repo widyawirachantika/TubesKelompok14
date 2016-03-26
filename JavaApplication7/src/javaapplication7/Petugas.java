@@ -17,9 +17,13 @@ public class Petugas extends Orang{
     private int jumPeminjam = 0;
     private String passwordPetugas;
 
-    public Petugas(String nama,int id, String passwordPetugas) {
+    public Petugas(String nama,String id, String passwordPetugas) {
         super(nama, id);
         this.passwordPetugas = passwordPetugas;
+    }
+    
+    public String getNama(){
+        return nama;
     }
 
     public String getJabatan() {
@@ -29,5 +33,9 @@ public class Petugas extends Orang{
     public void addAnggota(Anggota a){
         peminjam[jumPeminjam] = a;
         jumPeminjam++;
+    }
+    
+    public String toString(){
+        return ("Nama: "+getNama()+"\n"+"Jabatan: "+getJabatan());
     }
 }
