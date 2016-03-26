@@ -67,6 +67,9 @@ public class Barang{
         this.nBarangDipinjam = this.nBarangDipinjam + nBarangDipinjam;
     }
 
+    public String toString(){
+        return ("Kode Barang: "+getNamaBarang()+"\n"+"Jumlah Barang"+ getnBarang());
+    }
     
 //    public int getnBarangDibalikkan() {
 //        return nBarangDibalikkan;
