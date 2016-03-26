@@ -89,6 +89,10 @@ public class Peminjaman{
             }
             return temp;
         }
+        
+        public String toString(){
+        return ("Id Barang: "+getIdBarang()+"\n"+"Tanggal Pinjam: "+getTanggalPinjam());
+    }
 //	public void addBarang(int kodeBarang,int jumlah){
 //            Barang x = searchBarang(kodeBarang);
 //            b[nPinjaman]=x;
